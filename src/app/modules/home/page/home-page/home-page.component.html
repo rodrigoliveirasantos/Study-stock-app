@@ -1,0 +1,122 @@
+
+<div class="flex justify-content-center align-items-center min-h-screen bg-blue-100">
+  <p-card header="Login" *ngIf="form === 'sign-in'">
+    <form>
+      <fieldset>
+        <legend class="mb-4">
+          Faça login com seu email
+        </legend>
+
+        <div class="field">
+          <label for="email">Email</label>
+          <input
+            pInputText
+            class="w-full"
+            type="email"
+            name="email"
+            placeholder="nome@email.com"
+            autofocus
+          />
+        </div>
+        <div class="field">
+          <label for="password">Senha:</label>
+          <input
+            pInputText
+            class="w-full"
+            type="password"
+            name="email"
+            placeholder="123abc"
+          />
+        </div>
+      </fieldset>
+
+      <div class="space-y-2">
+        <button
+          pButton
+          pRipple
+          class="w-full justify-content-center"
+          (click)="showSignUp()"
+        >
+          Fazer login
+        </button>
+
+        <div class="text-center">
+          ou
+        </div>
+
+        <button
+          class="block text-center w-full"
+          type="button"
+          (click)="showSignUp()"
+        >
+          Criar uma conta
+        </button>
+      </div>
+    </form>
+  </p-card>
+
+  <p-card header="Criar uma conta" *ngIf="form === 'sign-up'">
+    <form>
+      <fieldset>
+        <legend class="mb-4">
+          Crie uma conta gratuita!
+        </legend>
+
+        <div class="field">
+          <label for="name">Nome</label>
+          <input
+            pInputText
+            class="w-full"
+            type="text"
+            name="name"
+            placeholder="Nome sobrenome"
+            autofocus
+          />
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input
+            pInputText
+            class="w-full"
+            type="email"
+            name="email"
+            placeholder="nome@email.com"
+          />
+        </div>
+        <div class="field">
+          <label for="password">Senha:</label>
+          <input
+            pInputText
+            class="w-full"
+            type="password"
+            name="email"
+            placeholder="123abc"
+          />
+        </div>
+      </fieldset>
+
+      <div class="space-y-2">
+        <button
+          pButton
+          pRipple
+          class="w-full justify-content-center"
+        >
+          Criar conta
+        </button>
+
+        <div class="text-center">
+          ou
+        </div>
+
+        <button
+          class="block text-center w-full"
+          type="button"
+          (click)="showSignIn()"
+        >
+          Fazer login com uma conta existente
+        </button>
+      </div>
+    </form>
+  </p-card>
+</div>
+

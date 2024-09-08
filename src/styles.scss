@@ -14,6 +14,18 @@ body {
   font-family: var(--font-family);
 }
 
+button {
+  font-size: inherit;
+  font-family: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+
+  &[disabled] {
+    cursor: auto;
+  }
+}
+
 @each $spacing-level, $spacing-value in config.$spacing {
   .space-y-#{$spacing-level} > * + * {
     margin-top: $spacing-value;
