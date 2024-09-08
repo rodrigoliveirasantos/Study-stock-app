@@ -1,3 +1,25 @@
+@use '/src/styles/config';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+fieldset {
+  border: 0;
+}
+
 body {
   font-family: var(--font-family);
+}
+
+@each $spacing-level, $spacing-value in config.$spacing {
+  .space-y-#{$spacing-level} > * + * {
+    margin-top: $spacing-value;
+  }
+
+  .space-x-#{$spacing-level} > * + * {
+    margin-left: $spacing-value;
+  }
 }
