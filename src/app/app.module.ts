@@ -15,7 +15,6 @@ import { HomeModule } from './modules/home/home.module';
   imports: [
     BrowserModule,
     BrowserAnimationsModule, // Necessário para o Ripple do PrimeNG
-    ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,
     HomeModule
