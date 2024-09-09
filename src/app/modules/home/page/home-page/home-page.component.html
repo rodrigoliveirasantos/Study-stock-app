@@ -1,19 +1,20 @@
 
 <div class="flex justify-content-center align-items-center min-h-screen bg-blue-100">
   <p-card header="Login" *ngIf="form === 'sign-in'">
-    <form>
+    <form [formGroup]="signInForm" (ngSubmit)="handleSignIn()">
       <fieldset>
         <legend class="mb-4">
           Faça login com seu email
         </legend>
 
         <div class="field">
-          <label for="email">Email</label>
+          <label for="email">Email:</label>
           <input
             pInputText
             class="w-full"
             type="email"
             name="email"
+            formControlName="email"
             placeholder="nome@email.com"
             autofocus
           />
@@ -24,7 +25,8 @@
             pInputText
             class="w-full"
             type="password"
-            name="email"
+            name="password"
+            formControlName="password"
             placeholder="123abc"
           />
         </div>
@@ -35,7 +37,7 @@
           pButton
           pRipple
           class="w-full justify-content-center"
-          (click)="showSignUp()"
+          [disabled]="signInForm.invalid"
         >
           Fazer login
         </button>
@@ -56,30 +58,32 @@
   </p-card>
 
   <p-card header="Criar uma conta" *ngIf="form === 'sign-up'">
-    <form>
+    <form [formGroup]="signUpForm" (ngSubmit)="handleSignUp()">
       <fieldset>
         <legend class="mb-4">
           Crie uma conta gratuita!
         </legend>
 
         <div class="field">
-          <label for="name">Nome</label>
+          <label for="name">Nome:</label>
           <input
             pInputText
             class="w-full"
             type="text"
             name="name"
+            formControlName="name"
             placeholder="Nome sobrenome"
             autofocus
           />
         </div>
         <div class="field">
-          <label for="email">Email</label>
+          <label for="email">Email:</label>
           <input
             pInputText
             class="w-full"
             type="email"
             name="email"
+            formControlName="email"
             placeholder="nome@email.com"
           />
         </div>
@@ -89,7 +93,8 @@
             pInputText
             class="w-full"
             type="password"
-            name="email"
+            name="password"
+            formControlName="password"
             placeholder="123abc"
           />
         </div>
@@ -100,6 +105,7 @@
           pButton
           pRipple
           class="w-full justify-content-center"
+          [disabled]="signUpForm.invalid"
         >
           Criar conta
         </button>

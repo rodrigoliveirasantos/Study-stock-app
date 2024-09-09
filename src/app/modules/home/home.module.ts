@@ -7,6 +7,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { ToastModule } from 'primeng/toast';
 import { ButtonModule } from 'primeng/button';
 import { RippleModule } from 'primeng/ripple';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { RippleModule } from 'primeng/ripple';
   ],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
 
     /* PrimeNG */
     CardModule,

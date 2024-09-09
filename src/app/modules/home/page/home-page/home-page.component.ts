@@ -1,4 +1,5 @@
 import { Component, inject } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { MessageService } from 'primeng/api';
 
 @Component({
@@ -9,9 +10,20 @@ import { MessageService } from 'primeng/api';
 })
 export class HomePageComponent {
   private _messageService = inject(MessageService);
+  private _fb = inject(FormBuilder);
 
-  form: 'sign-in' | 'sign-up' = 'sign-in'
+  form: 'sign-in' | 'sign-up' = 'sign-in';
 
+  signInForm = this._fb.group({
+    email: ['', [ Validators.required, Validators.email ]],
+    password: ['', Validators.required]
+  });
+
+  signUpForm = this._fb.group({
+    email: ['', [ Validators.required, Validators.email ]],
+    password: ['', Validators.required],
+    name: ['', Validators.required]
+  })
 
   show() {
     this._messageService.add({
@@ -21,11 +33,19 @@ export class HomePageComponent {
     })
   }
 
-  showSignIn() {
+  showSignIn(): void {
     this.form = 'sign-in'
   }
 
-  showSignUp() {
+  showSignUp(): void{
     this.form = 'sign-up';
+  }
+
+  handleSignIn(): void {
+    console.log(this.signInForm.value)
+  }
+
+  handleSignUp(): void {
+    console.log(this.signUpForm.value)
   }
 }
